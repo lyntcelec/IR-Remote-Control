@@ -468,7 +468,7 @@ class IrRemoteControl extends LitElement {
               ? html`
                   <button
                     class="btn ripple"
-                    @click=${() => this._media_player_turn_on(mac)}
+                    @click=${() => this._button("POWER")}
                   >
                     <ha-icon icon="mdi:power" style="color: ${textColor};" />
                   </button>
