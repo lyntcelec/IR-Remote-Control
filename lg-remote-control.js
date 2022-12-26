@@ -1043,12 +1043,13 @@ class LgRemoteControl extends LitElement {
 
   _button(button) {
     let command = button;
-    console.log(
-      `[CUSTOM-REMOTE][BUTTON][${this.config.entity}][${this.config.device}]: ${button}`
-    );
     if (this.config.remap[button] !== undefined) {
       command = this.config.remap[button];
     }
+    console.log(this.config.remap);
+    console.log(
+      `[CUSTOM-REMOTE][BUTTON][${this.config.entity}][${this.config.device}]: ${button}`
+    );
     this.hass.callService("remote", "send_command", {
       entity_id: this.config.entity,
       device: this.config.device,
