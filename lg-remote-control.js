@@ -807,7 +807,7 @@ class LgRemoteControl extends LitElement {
                                  </button>
                                  <button
                                    class="btn ripple item_input"
-                                   @click=${() => this._button("input_source")}
+                                   @click=${() => this._button("INPUT")}
                                  >
                                    <ha-icon icon="mdi:import" />
                                  </button>
@@ -988,27 +988,27 @@ class LgRemoteControl extends LitElement {
                  <div class="grid-container-media-control" >
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "play"
+                          "PLAY"
                         )}><ha-icon icon="mdi:play"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "pause"
+                          "PAUSE"
                         )}><ha-icon icon="mdi:pause"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "stop"
+                          "STOP"
                         )}><ha-icon icon="mdi:stop"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "rewind"
+                          "REWIND"
                         )}><ha-icon icon="mdi:skip-backward"/></button>
                       <button class="btn-flat flat-low ripple" style="color: red;" @click=${() =>
                         this._command(
-                          "Record"
+                          "RECORD"
                         )}><ha-icon icon="mdi:record"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "fastForward"
+                          "FAST_FORWARD"
                         )}><ha-icon icon="mdi:skip-forward"/></button>
                   </div> 
 <!-- ################################# MEDIA CONTROL END ################################# -->
