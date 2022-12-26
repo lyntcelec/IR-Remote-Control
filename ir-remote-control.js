@@ -1068,21 +1068,6 @@ class IrRemoteControl extends LitElement {
       command: command,
     });
   }
-  _media_player_turn_on(mac) {
-    if (this.config.mac) {
-      this.hass.callService("wake_on_lan", "send_magic_packet", {
-        mac: mac,
-      });
-    } else {
-      this._media_player_service("turn_on");
-    }
-  }
-
-  _media_player_service(service) {
-    this.hass.callService("media_player", service, {
-      entity_id: this.config.entity,
-    });
-  }
 
   _select_source(source) {
     this.hass.callService("media_player", "select_source", {
