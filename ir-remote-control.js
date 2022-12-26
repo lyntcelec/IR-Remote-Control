@@ -3,7 +3,7 @@ var LitElement =
 var html = LitElement.prototype.html;
 var css = LitElement.prototype.css;
 
-class LgRemoteControl extends LitElement {
+class IrRemoteControl extends LitElement {
   static get disneyIcon() {
     return html`<svg
       version="1.1"
@@ -649,7 +649,7 @@ class LgRemoteControl extends LitElement {
                         }" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() =>
                                  this._select_sound_output(
                                    "tv_external_speaker"
-                                 )}>${LgRemoteControl.tvoptic}</button>
+                                 )}>${IrRemoteControl.tvoptic}</button>
                         <button class="${
                           stateObj.attributes.sound_output ===
                           "tv_speaker_headphone"
@@ -658,7 +658,7 @@ class LgRemoteControl extends LitElement {
                         }" style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() =>
                                  this._select_sound_output(
                                    "tv_speaker_headphone"
-                                 )}>${LgRemoteControl.tvheadphone}</button>
+                                 )}>${IrRemoteControl.tvheadphone}</button>
                         <button class="${
                           stateObj.attributes.sound_output ===
                           "external_optical"
@@ -667,14 +667,14 @@ class LgRemoteControl extends LitElement {
                         }" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() =>
                                  this._select_sound_output(
                                    "external_optical"
-                                 )}>${LgRemoteControl.optic}</button>
+                                 )}>${IrRemoteControl.optic}</button>
                         <button class="${
                           stateObj.attributes.sound_output === "external_arc"
                             ? "btn_sound_on hdmi bnt_sound_icon_width"
                             : "btn_sound_off hdmi bnt_sound_icon_width ripple overlay"
                         }"style="margin-left: calc(var(--remotewidth) / 7.5);" @click=${() =>
                                  this._select_sound_output("external_arc")}>${
-                                 LgRemoteControl.arc
+                                 IrRemoteControl.arc
                                }</button>
                         <button class="${
                           stateObj.attributes.sound_output === "lineout"
@@ -682,7 +682,7 @@ class LgRemoteControl extends LitElement {
                             : "btn_sound_off line bnt_sound_icon_width ripple overlay"
                         }" style="margin-right: calc(var(--remotewidth) / 7.5);" @click=${() =>
                                  this._select_sound_output("lineout")}>${
-                                 LgRemoteControl.lineout
+                                 IrRemoteControl.lineout
                                }</button>
                         <button class="${
                           stateObj.attributes.sound_output === "headphone"
@@ -868,7 +868,7 @@ class LgRemoteControl extends LitElement {
                                   @click=${() =>
                                     this._select_source(source.name)}
                                 >
-                                  ${LgRemoteControl.getIcon(source.icon)}
+                                  ${IrRemoteControl.getIcon(source.icon)}
                                 </button>
                               `;
                             })}
@@ -898,13 +898,13 @@ class LgRemoteControl extends LitElement {
                             class="btn_source ripple"
                             @click=${() => this._select_source("Disney+")}
                           >
-                            ${LgRemoteControl.disneyIcon}
+                            ${IrRemoteControl.disneyIcon}
                           </button>
                           <button
                             class="btn_source ripple"
                             @click=${() => this._select_source("DAZN")}
                           >
-                            ${LgRemoteControl.daznIcon}
+                            ${IrRemoteControl.daznIcon}
                           </button>
                         </div>`
                   }
@@ -1125,8 +1125,8 @@ class LgRemoteControl extends LitElement {
   }
 
   static getIcon(iconName) {
-    return Object.keys(LgRemoteControl.iconMapping).includes(iconName)
-      ? LgRemoteControl.iconMapping[iconName]
+    return Object.keys(IrRemoteControl.iconMapping).includes(iconName)
+      ? IrRemoteControl.iconMapping[iconName]
       : html`<ha-icon style="height: 70%; width: 70%;" icon="${iconName}" />`;
   }
 
@@ -1597,4 +1597,4 @@ class LgRemoteControl extends LitElement {
   }
 }
 
-customElements.define("lg-remote-control", LgRemoteControl);
+customElements.define("ir-remote-control", IrRemoteControl);

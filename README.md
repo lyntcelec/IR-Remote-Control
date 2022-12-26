@@ -1,6 +1,6 @@
-# LG-Remote-Control
+# ir-remote-control
 
-Remote Control for LG TV WebOS
+Remote Control for IR TV WebOS
 
 ## Color Management
 
@@ -30,32 +30,32 @@ deactive-background-button-color: "#f2f0fa"
 
 ## hacs Card install
 
-1. Find and install `LG Remote Control` plugin
+1. Find and install `IR Remote Control` plugin
 
 2. Add a reference inside your resources config:
 
 ```yaml
 resources:
   - type: module
-    url: /hacsfiles/LG-Remote-Control/lg-remote-control.js
+    url: /hacsfiles/ir-remote-control/ir-remote-control.js
 ```
 
 ### Manual install
 
-1. Download and copy `lg-remote-control.js` from (https://github.com/lyntcelec/LG-Remote-Control) into your custom components directory.
+1. Download and copy `ir-remote-control.js` from (https://github.com/lyntcelec/ir-remote-control) into your custom components directory.
 
-2. Add a reference `lg-remote-control.js` inside your resources config:
+2. Add a reference `ir-remote-control.js` inside your resources config:
 
 ```yaml
 resources:
-  - url: /local/"your_directory"/lg-remote-control.js
+  - url: /local/"your_directory"/ir-remote-control.js
     type: module
 ```
 
 # lovelace config: default view
 
 ```yaml
-type: custom:lg-remote-control
+type: custom:ir-remote-control
 entity: remote.rm3
 device: tivi
 color_buttons: enable
@@ -68,7 +68,7 @@ remap:
 
 | Name            | Type        | Default      | Supported options          | Description                                                                                                                                                                                                                                                      |
 | --------------- | ----------- | ------------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`          | string      | **Required** | `custom:lg-remote-control` | Type of the card                                                                                                                                                                                                                                                 |
+| `type`          | string      | **Required** | `custom:ir-remote-control` | Type of the card                                                                                                                                                                                                                                                 |
 | `entity`        | string      | **Required** |                            | tv entity                                                                                                                                                                                                                                                        |
 | `device`        | string      | **Option**   |                            | Device ID to send command to.                                                                                                                                                                                                                                    |
 | `name`          | string      | **Option**   |                            | tv name                                                                                                                                                                                                                                                          |

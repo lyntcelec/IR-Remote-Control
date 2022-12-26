@@ -1,6 +1,6 @@
 {
-  "name": "Remote Control",
+  "name": "IR Remote Control",
   "content_in_root": true,
-  "filename": "lg-remote-control.js",
+  "filename": "ir-remote-control.js",
   "render_readme": true
 }

@@ -1,8 +1,10 @@
 ## Release Note: New Features added
+
 see the details below
 
-# LG-WebOS-Remote-Control
-Remote Control for LG TV WebOS
+# IR-WebOS-Remote-Control
+
+Remote Control for IR TV WebOS
 
 ![all](example/remote.png)
 
@@ -12,10 +14,10 @@ browser_mod is required for this channel panel
 
 custom card: "card-channel-pad" is required.(you can find it on my github)
 
-
 ## New Features:
 
 added two panels:
+
 - TV App List
 - Sound Output Pannel
 - Integrated keypad
