@@ -1042,22 +1042,26 @@ class LgRemoteControl extends LitElement {
   }
 
   _button(button) {
+    let command = button;
     console.log(
-      `[CUSTOM-REMOTE][BUTTON][${this.config.remote_host}][${this.config.device}]: ${button}`
+      `[CUSTOM-REMOTE][BUTTON][${this.config.entity}][${this.config.device}]: ${button}`
     );
+    if (this.config.remap[button] !== undefined) {
+      command = this.config.remap[button];
+    }
     this.hass.callService("remote", "send_command", {
-      entity_id: this.config.remote_host,
+      entity_id: this.config.entity,
       device: this.config.device,
-      command: button,
+      command: command,
     });
   }
 
   _command(command) {
     console.log(
-      `[CUSTOM-REMOTE][COMMAND][${this.config.remote_host}][${this.config.device}]: ${command}`
+      `[CUSTOM-REMOTE][COMMAND][${this.config.entity}][${this.config.device}]: ${command}`
     );
     this.hass.callService("remote", "send_command", {
-      entity_id: this.config.remote_host,
+      entity_id: this.config.entity,
       device: this.config.device,
       command: command,
     });
