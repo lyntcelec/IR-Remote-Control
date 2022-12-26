@@ -792,11 +792,11 @@ class LgRemoteControl extends LitElement {
                                    </svg>
                                  </div>
                                  <button
-                                   class="btn ripple item_sound"
-                                   @click=${() =>
-                                     (this._show_sound_output = true)}
+                                   class="btn ripple item_menu"
+                                   style="background-color: transparent;"
+                                   @click=${() => this._button("MENU")}
                                  >
-                                   <ha-icon icon="mdi:speaker" />
+                                   <ha-icon icon="mdi:menu" />
                                  </button>
                                  <button
                                    class="btn ripple item_up"
@@ -807,7 +807,7 @@ class LgRemoteControl extends LitElement {
                                  </button>
                                  <button
                                    class="btn ripple item_input"
-                                   @click=${() => (this._show_inputs = true)}
+                                   @click=${() => this._button("input_source")}
                                  >
                                    <ha-icon icon="mdi:import" />
                                  </button>
@@ -942,9 +942,11 @@ class LgRemoteControl extends LitElement {
 <!-- ################################# COLORED BUTTONS END ################################# -->
 
                   <div class="grid-container-volume-channel-control" >
-                      <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${() =>
-                        this._media_player_service(
-                          "volume_up"
+                      <button class="btn ripple"  style="border-radius: 50% 50% 0px 0px; margin: 0px auto 0px auto; height: 100%;" @click=${(
+                        e
+                      ) =>
+                        this._button(
+                          "VOLUME_UP"
                         )}><ha-icon icon="mdi:plus"/></button>
                       <button class="btn-flat flat-high ripple" style="margin-top: 0px; height: 50%;" @click=${() =>
                         this._button("HOME")}><ha-icon icon="mdi:home"></button>
@@ -966,9 +968,11 @@ class LgRemoteControl extends LitElement {
                 stateObj.attributes.is_volume_muted === true ? "blink" : ""
               }"><ha-icon icon="mdi:volume-mute"></span></button>
                       <button class="btn" style="border-radius: 0px; cursor: default; margin: 0px auto 0px auto; height: 100%;"><ha-icon icon="mdi:parking"/></button>
-                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${() =>
-                        this._media_player_service(
-                          "volume_down"
+                      <button class="btn ripple" style="border-radius: 0px 0px 50% 50%;  margin: 0px auto 0px auto; height: 100%;" @click=${(
+                        e
+                      ) =>
+                        this._button(
+                          "VOLUME_DOWN"
                         )}><ha-icon icon="mdi:minus"/></button>
                       <button class="btn-flat flat-high ripple" style="margin-bottom: 0px; height: 50%;" @click=${() =>
                         this._button(
@@ -984,27 +988,27 @@ class LgRemoteControl extends LitElement {
                  <div class="grid-container-media-control" >
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "media.controls/play"
+                          "play"
                         )}><ha-icon icon="mdi:play"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "media.controls/pause"
+                          "pause"
                         )}><ha-icon icon="mdi:pause"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "media.controls/stop"
+                          "stop"
                         )}><ha-icon icon="mdi:stop"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "media.controls/rewind"
+                          "rewind"
                         )}><ha-icon icon="mdi:skip-backward"/></button>
                       <button class="btn-flat flat-low ripple" style="color: red;" @click=${() =>
                         this._command(
-                          "media.controls/Record"
+                          "Record"
                         )}><ha-icon icon="mdi:record"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() =>
                         this._command(
-                          "media.controls/fastForward"
+                          "fastForward"
                         )}><ha-icon icon="mdi:skip-forward"/></button>
                   </div> 
 <!-- ################################# MEDIA CONTROL END ################################# -->
@@ -1043,9 +1047,7 @@ class LgRemoteControl extends LitElement {
 
   _button(button) {
     let command = button;
-    console.log(this.config.remap);
     for (let bt of this.config.remap) {
-      console.log(bt);
       if (bt[button] !== undefined) {
         command = bt[button];
         break;
@@ -1064,9 +1066,7 @@ class LgRemoteControl extends LitElement {
 
   _command(button) {
     let command = button;
-    console.log(this.config.remap);
     for (let bt of this.config.remap) {
-      console.log(bt);
       if (bt[button] !== undefined) {
         command = bt[button];
         break;
@@ -1074,7 +1074,7 @@ class LgRemoteControl extends LitElement {
     }
 
     console.log(
-      `[CUSTOM-REMOTE][BUTTON][${this.config.entity}][${this.config.device}]: ${command}`
+      `[CUSTOM-REMOTE][COMMAND][${this.config.entity}][${this.config.device}]: ${command}`
     );
     this.hass.callService("remote", "send_command", {
       entity_id: this.config.entity,
@@ -1388,7 +1388,7 @@ class LgRemoteControl extends LitElement {
        .bluetooth {
            grid-area: bluetooth;
       }
-       .item_sound {
+       .item_menu {
            grid-area: sound;
       }
        .item_up {
