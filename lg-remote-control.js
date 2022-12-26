@@ -1044,7 +1044,7 @@ class LgRemoteControl extends LitElement {
   _button(button) {
     let command = button;
     console.log(this.config.remap);
-    for (bt of this.config.remap) {
+    for (let bt of this.config.remap) {
       console.log(bt);
       if (bt[button] !== undefined) {
         command = bt[button];
