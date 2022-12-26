@@ -464,23 +464,9 @@ class IrRemoteControl extends LitElement {
             >
               <ha-icon icon="mdi:format-list-numbered" />
             </button>
-            ${stateObj.state === "off"
-              ? html`
-                  <button
-                    class="btn ripple"
-                    @click=${() => this._button("POWER")}
-                  >
-                    <ha-icon icon="mdi:power" style="color: ${textColor};" />
-                  </button>
-                `
-              : html`
-                  <button
-                    class="btn ripple"
-                    @click=${() => this._media_player_service("turn_off")}
-                  >
-                    <ha-icon icon="mdi:power" style="color: red;" />
-                  </button>
-                `}
+            <button class="btn ripple" @click=${() => this._button("POWER")}>
+              <ha-icon icon="mdi:power" style="color: red;" />
+            </button>
             <button
               class="btn-flat flat-high ripple"
               @click=${() => (this._show_keypad = !this._show_keypad)}
