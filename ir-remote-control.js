@@ -1033,11 +1033,14 @@ class IrRemoteControl extends LitElement {
 
   _button(button) {
     let command = button;
-    for (let bt of this.config.remap) {
-      if (bt[button] !== undefined) {
-        command = bt[button];
-        break;
+    if (this.config.remap !== undefined && this.config.remap !== null) {
+      for (let bt of this.config.remap) {
+        if (bt[button] !== undefined) {
+          command = bt[button];
+          break;
+        }
       }
+      issc;
     }
 
     console.log(
@@ -1052,11 +1055,14 @@ class IrRemoteControl extends LitElement {
 
   _command(button) {
     let command = button;
-    for (let bt of this.config.remap) {
-      if (bt[button] !== undefined) {
-        command = bt[button];
-        break;
+    if (this.config.remap !== undefined && this.config.remap !== null) {
+      for (let bt of this.config.remap) {
+        if (bt[button] !== undefined) {
+          command = bt[button];
+          break;
+        }
       }
+      issc;
     }
 
     console.log(
